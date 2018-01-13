@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { HomeComponent } from './home/home.component';
 import { JqueryComponent } from './jquery/jquery.component';
-import {AppRoutingModule} from "./app-routing.module";
+import {AppRoutingModule} from './app-routing.module';
 import {MatButtonModule, MatCardModule, MatIconModule, MatMenuModule, MatToolbarModule} from '@angular/material';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { AngularComponent } from './angular/angular.component';
+import {UserService} from './user.service';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     AppComponent,
     IndexComponent,
     HomeComponent,
-    JqueryComponent
+    JqueryComponent,
+    AngularComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatButtonModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
