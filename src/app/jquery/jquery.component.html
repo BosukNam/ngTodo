@@ -1,8 +1,25 @@
+
 <mat-card>
-<mat-card-header>My Todo List</mat-card-header>
-<mat-card-content>내용</mat-card-content>
-<mat-card-actions>
-  <button mat-raised-button>LIKE</button>
-  <button mat-button>SHARE</button>
-</mat-card-actions>
+  <mat-card-header>
+    <mat-card-title>My Todo List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div fxLayout="row">
+      <input type="text" placeholder="할일" id="input_todo" fxFlex="4 1 auto">
+      <button type="button" fxFlex="1 1 auto" class="active">추가</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <td></td>
+        </tr>
+      <!-- tr>td*4 입력후 tab 버튼 눌르면 자동으로 완성됨 -->
+      </thead>
+
+    </table>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button>Like</button>
+    <button mat-button>Share</button>
+  </mat-card-actions>
 </mat-card>

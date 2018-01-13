@@ -1,0 +1,24 @@
+body {
+  .mat-card {
+    padding: 0;
+    margin: ($gutter/2);
+    .mat-card-header {
+      height: auto;
+      background-color: #eeeeee;
+      .mat-card-title {
+        padding-top: $gutter;
+        padding-left: $gutter;
+        padding-right: $gutter;
+        line-height: 1;
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+    }
+    .mat-card-content {
+      padding: $gutter;
+      margin-bottom: 0;
+      position: relative;
+    }
+  }
+}
+

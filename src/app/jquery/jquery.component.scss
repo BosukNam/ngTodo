@@ -1,0 +1,38 @@
+$buttonColor: #337ab7;
+$buttonDark: darken($buttonColor, 10%);
+$buttonDarker: darken($buttonDark, 10%);
+
+// mixin 정의
+@mixin transform ($x, $y) {
+  -webkit-transform: translate($x, $y);
+  -moz-transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
+  -o-transform: translate($x, $y);
+  transform: translate($x, $y);
+}
+
+button.active{
+  background-color: $buttonColor;
+  border: 0;
+  padding: 0.5rem;
+  color: white;
+  box-shadow: 4px 4px 6px $buttonDark;
+  // x, y, blur, color
+
+  &:hover {
+    background: $buttonDark;
+    box-shadow: 4px 4px 6px $buttonDarker;
+  }
+
+  &:active {
+    box-shadow: none;
+    //-webkit-transform: translate(4px, 4px);
+    //-moz-transform: translate(4px, 4px);
+    //-ms-transform: translate(4px, 4px);
+    //-o-transform: translate(4px, 4px);
+    //transform: translate(4px, 4px);
+
+    // include
+    @include transform(4px, 4px);
+  }
+}
