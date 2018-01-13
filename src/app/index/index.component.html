@@ -1,31 +1,25 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-<mat-toolbar color="primary">
+<!--<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">-->
+<mat-toolbar color="primary" fxLayout="row">
   <span>MyApp</span>
-
+  <span fxFlex="1 1 auto"></span> <!-- 부모에서 설정하지 않을 시 -->
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
   </button>
-
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/jquery">
-        <mat-icon>input</mat-icon>
-        <span>jquery</span>
-      </button>
-      <button mat-menu-item >
-        <mat-icon>input</mat-icon>
-        <span>angular</span>
-      </button>
-      <button mat-menu-item >
-        <mat-icon>input</mat-icon>
-        <span>http</span>
-      </button>
-      <button mat-menu-item >
-        <mat-icon>input</mat-icon>
-        <span>news</span>
-      </button>
-    </mat-menu>
 </mat-toolbar>
 
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/">
+    <mat-icon>menu</mat-icon>
+    <span>home</span>
+  </button>
+  <button mat-menu-item routerLink="/jquery">
+    <mat-icon>voicemail</mat-icon>
+    <span>jquery</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon>
+    <span>angular</span>
+  </button>
+</mat-menu>
 
 <router-outlet></router-outlet>
