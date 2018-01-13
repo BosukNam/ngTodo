@@ -7,7 +7,7 @@ import { IndexComponent } from './index/index.component';
 import { HomeComponent } from './home/home.component';
 import { JqueryComponent } from './jquery/jquery.component';
 import {AppRoutingModule} from './app-routing.module';
-import {MatToolbar, MatToolbarModule} from '@angular/material';
+import {MatIconModule, MatMenuModule, MatToolbar, MatToolbarModule} from '@angular/material';
 
 
 @NgModule({
@@ -20,7 +20,9 @@ import {MatToolbar, MatToolbarModule} from '@angular/material';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
