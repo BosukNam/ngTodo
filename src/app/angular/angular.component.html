@@ -1,3 +1,37 @@
-<p>
-  angular works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>My Todo List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div fxLayout="row">
+      <input type="text" placeholder="할일" id="input_todo" fxFlex="4 1 auto" [(ngModel)]="newTodo.todo">
+      <button type="button" fxFlex="1 1 auto" class="active" (click)="addTodo()">추가</button>
+    </div>
+
+    <hr>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>완료</th>
+        <th>todo</th>
+        <th>생성일</th>
+        <th>수정일</th>
+        <th>삭제</th>
+      </tr>
+      </thead>
+      <tbody id="todo_list">
+      <tr *ngFor="let item of todoList">
+        <td>{{item.isFinished ? '완료' : '비완료'}}</td>
+        <td>{{item.todo}}</td>
+        <td>{{item.created}}</td>
+        <td>{{item.updated}}</td>
+        <td>
+          <button mat-raised-button color="warn">삭제</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </mat-card-content>
+</mat-card>

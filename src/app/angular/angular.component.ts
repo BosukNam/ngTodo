@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../user.service';
+import {TodoVO} from '../Domain/todo.vo';
 
 @Component({
   selector: 'app-angular',
@@ -7,6 +8,8 @@ import {UserService} from '../user.service';
   styleUrls: ['./angular.component.scss']
 })
 export class AngularComponent implements OnInit {
+  todoList: Array<TodoVO>;
+  newTodo: TodoVO = new TodoVO(); // 투두 추가를 위한 객체
 
   constructor(private userService: UserService) { }
 
@@ -15,7 +18,17 @@ export class AngularComponent implements OnInit {
   }
 
   getTodoList() {
+    this.userService.getTodoList().
+      subscribe((data: Array<TodoVO>) => {
+        console.log(data);
+        this.todoList = data;
+      }
+    );
+  }
 
+  addTodo() {
+    this.userService.addTodo(this.newTodo)
+      .subscribe(data => console.log(data));
   }
 
 }

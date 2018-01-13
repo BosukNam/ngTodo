@@ -17,6 +17,32 @@ html, body {
   font-size: 14px;
 }
 
+
+table {
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  thead, tbody {
+    tr {
+      th, td {
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+      }
+    }
+  }
+  thead {
+    background-color: #dddddd;
+  }
+}
+
 @media screen and (max-width: 599px) {
   html, body {
     font-size: 12px;
