@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.5/Rx.js"></script>
+</head>
+<body>
+<button id="start">start</button>
+</body>
+</html>
+
+<script>
+  var startBtn = document.querySelector('#start');
+
+/*  Rx.Observable.fromEvent(startBtn, 'click')
+    .subscribe((event) => console.log(event));
+
+  Rx.Observable.interval(1000)
+    .subscribe(x => console.log(x));*/
+
+  // 버튼을 누를때마다 observable이 여러개 생긴다.
+  /*Rx.Observable.fromEvent(startBtn, 'click')
+    .subscribe((event) => Rx.Observable.interval(1000)
+      .subscribe(x => console.log(x)));*/
+
+  // switchMap을 이용해서 flow를 다른 flow로 switch한다.
+  // 아래 그림 이해
+  // http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-switchMap
+  Rx.Observable.fromEvent(startBtn, 'click')
+    .switchMap((event) => Rx.Observable.interval(1000))
+      .subscribe(x => console.log(x));
+
+</script>

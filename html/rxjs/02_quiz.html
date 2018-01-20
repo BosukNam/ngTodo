@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.5/Rx.js"></script>
+</head>
+<body>
+  <button id="start">start</button>
+</body>
+</html>
+
+<script>
+  var startBtn = document.querySelector('#start');
+
+  Rx.Observable.range(1,100000)
+    .switchMap(num => Rx.Observable.from(new String(num)))
+    .filter(num => String(num).match(/8/))
+    .count()
+    .subscribe(num => console.log(num));
+
+</script>

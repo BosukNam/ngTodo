@@ -7,10 +7,11 @@ let object = {
 };
 
 
-/*let object = {
+let object2 = {
     bow () {
         console.log("안녕하세요!!!");
     }
-};*/
+};
 
 object.bow();
+object2.bow();

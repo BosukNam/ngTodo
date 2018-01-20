@@ -4,3 +4,9 @@ let array1 = [1,2,3];
 let array2 = [4,5];
 let array3 = [6,7,8,9,10];
 
+let arr = [...array1, ...array2, ...array3]; // 펼침 연산자 이용
+
+// 1. foreach 반복문 이용
+var sum = 0;
+arr.forEach(item => sum += item);
+console.log(sum);

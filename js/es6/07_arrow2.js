@@ -9,18 +9,18 @@
         // 비엄격 모드에서, growUp() 함수는 `this`를
         // 전역 객체로 정의하고, 이는 Person() 생성자에
         // 정의된 `this`와 다름.
-        this.age++;
+        this.age++; // this는 window 컨텍스트를 가리킴
         console.log(this.age);
     }, 1000);
-}
+}*/
 
-var p = new Person();*/
+var p = new Person();
 
 function Person(){
     this.age = 0;
 
     setInterval(() => {
-        this.age++; // |this| 는 정확히 person 객체를 참조
+        this.age++; // |this| 는 정확히 person 객체를 참조 = lexical this
         console.log(this.age);
     }, 1000);
 }

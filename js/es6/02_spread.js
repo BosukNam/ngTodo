@@ -7,5 +7,6 @@ function myFunction(a, b, c, d, e) {
     return a+b+c+d+e;
 }
 
+// apply는 배열, call은 parameter를 넘김
 let result = myFunction.apply(null, [...array2, ...array3]);
 console.log(result);

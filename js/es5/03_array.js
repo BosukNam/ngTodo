@@ -15,13 +15,15 @@ var books = [
   {title: "안드로이드정복", price: 15000, author: "김상형", order: 4},
 ];
 
-// 2. books의 type은 무엇인가? 자바스크립트의 타입은 몇가지가 있는가?
-
+// 2. books의 type은 무엇인가? = object
+// 자바스크립트의 타입은 몇가지가 있는가? = primitive (boolean, number, string, symbol, null, undefined), object (주소값)
+console.log(typeof books);
 
 //3. 맨 앞쪽에 이것이자바다, 40000, 김상형, 5를 추가하시오 (힌트: unshift)
+books.unshift({title: "이것이자바다", price: 40000, author: "김상형", order: 5});
 
 //4. 맨 앞쪽에 추가한것을 지우시오,
-
+console.log(books);
 
 // 5. 맨 뒷쪽에 추가하시오. (힌트: push)
 
@@ -43,8 +45,13 @@ var books = [
 
 
 // 11. 제목앞에 판매순위를 등수를 붙인 새로운 배열을 생성하시오.(힌트: map)
-
-
+var newMap = books.map(function (item) {
+  item.title = item.order + '등' + item.title;
+  return item;
+})
+// shallow copy
+console.log(newMap);
+console.log(books);
 
 // 12. 새로운 배열을 만들되 3등안에 있는것만 따로 만든다. (힌트: filter)
 
