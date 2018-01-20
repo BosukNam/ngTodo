@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form</title>
+<style>
+label {
+	display: inline-block;
+	width: 100px;
+	height: 25px;
+}
+</style>
+</head>
+<body>
+
+	<form>
+		<input type="search" name="search" placeholder="검색할 단어를 입력하세요.">
+		<input type="submit" value="검색">
+	</form>
+	<h2>회원 가입</h2>
+	<form method="get" action="#">
+		<input type="hidden" value="클라이언트는 모르는 값">
+		<fieldset>
+			<legend>개인 신상 정보</legend>
+			<label for="name">성명</label>
+			<input type="text" name="name" id="name" pattern="^[가-힣]{2,5}$" title="한글 2~5글자 이내">
+		
+			<label for="id">아이디</label>
+			<input type="text" name="id" id="id" autofocus="autofocus">
+			<br>
+			<label for="tel">전화번호</label>
+			<input type="tel" name="tel" id="tel" required="required">
+			
+			<label for="url">홈페이지</label>
+			<input type="url" name="url" id="url">
+			<br>
+			<label for="email">이메일</label>
+			<input type="email" name="email" id="email" multiple="multiple">
+			
+			<label for="pass">비밀번호</label>
+			<input type="password" name="password" id="pass">
+			<br>
+			<label for="color">선호색상</label>
+			<input type="color" name="color" id="color">
+		</fieldset>
+		
+		<fieldset>
+			<legend>부가 정보</legend>
+			<label>외국어 능력</label>
+			<input type="checkbox" name="lang" id="lang_eng" value="eng" checked>
+			<label for="lang_eng">영어 </label>
+			<input type="checkbox" name="lang" id="lang_chi" value="chi">
+			<label for="lang_chi">중국어 </label>
+			<input type="checkbox" name="lang" id="lang_jpa" value="jap">
+			<label for="lang_jpa">일본어 </label><br>
+			<label>성별</label>
+			<input type="radio" name="gender" id="gender_m" value="male">
+			<label for="gender_male">남성 </label>
+			<input type="radio" name="gender" id="gender_f" value="female">
+			<label for="gender_female">여성</label>
+		</fieldset>
+		<fieldset>
+			<legend>기타 정보</legend>
+			<label for="birth">생일</label>
+			<input type="date" name="date" id="birth">
+			
+			<label for="children">자녀수</label>
+			<input type="number" name="children" id="children" min="0" max="10" step="2">
+			<br>
+			<label for="time">통화가능시간</label>
+			<input type="time" name="time" id="time">
+			
+			<label for="satis">행복지수</label>
+			<input type="range" name="satis" id="satis" min="0" max="10" value="5">
+		</fieldset>
+		<input type="submit" value="전송">
+		<input type="reset" value="새로">
+	</form>
+</body>
+</html>

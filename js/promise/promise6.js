@@ -12,7 +12,7 @@ let async1 = function (param) {
   });
 };
 
-async1(0)
+async1(0) // 1, -1 해보기
     .then(value=> console.log('resolve1:', value), value=>console.log('error1:', value));
 
 async1(0)

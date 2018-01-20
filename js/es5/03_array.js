@@ -54,4 +54,10 @@ console.log(newMap);
 console.log(books);
 
 // 12. 새로운 배열을 만들되 3등안에 있는것만 따로 만든다. (힌트: filter)
+var newFilter = books.filter(item => {
+  if(item.order <= 3){
+  return true;
+}
 
+});
+console.log(newFilter);

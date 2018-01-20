@@ -10,3 +10,6 @@ let arr = [...array1, ...array2, ...array3]; // 펼침 연산자 이용
 var sum = 0;
 arr.forEach(item => sum += item);
 console.log(sum);
+
+var sum2  = arr.reduce((prev, curr) => prev + curr);
+console.log(sum2);

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form API</title>
+<style>
+	label{
+		display:inline-block;
+		width: 80px;
+	}
+</style>
+</head>
+<body>
+	<form name="info" id="info" action="#" novalidate="novalidate">
+		<label for="nickname">별명</label>
+		<input id="nickname" pattern="[A-Za-z]{3,}" maxlength="10" value="1">
+		<br>
+		<label for="myemail">이메일</label>
+		<input type="email" id="myemail" required>
+		<br>
+		<label for="myage">나이</label>
+		<input type="number" id="myage" min="0" max="100" step="20" value="23">
+		<br>
+		<input type="submit" id="send" value="전송">
+	</form>
+</body>
+<script>
+	var form = document.getElementById("info");
+	var inputs = document.querySelectorAll("input");
+	form.addEventListener("submit", function(e) {
+		e.preventDefault();
+		for (var i = 0; i < inputs.length; i++) {
+			var input = inputs[i];
+			var vs = input.validity;
+			console.log(input.type + ":" + input.id+", 유효성 통과 여부 : "+vs.valid);
+			for ( var prop in vs) {
+				console.log("--" + prop + " : " + vs[prop]);
+			}
+		}
+	});
+</script>
+</html>
