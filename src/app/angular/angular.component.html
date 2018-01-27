@@ -3,11 +3,18 @@
     <mat-card-title>My Todo List</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <div fxLayout="row">
-      <input type="text" placeholder="할일" id="input_todo" fxFlex="4 1 auto" [(ngModel)]="newTodo.todo">
-      <button type="button" fxFlex="1 1 auto" class="active" (click)="addTodo()">추가</button>
-    </div>
-
+    <form #myForm="ngForm" (ngSubmit)="addTodo()">
+      <div fxLayout="row" fxLayoutAlign="start start">
+        <mat-form-field fxFlex="4 1 auto">
+          <input matInput placeholder="할일" id="input_todo" name="todo" #name="ngModel"
+                 [(ngModel)]="newTodo.todo" required>
+          <mat-hint align="start" style="color: red;">{{!name.value? '할일을 입력하세요' : ''}}
+          </mat-hint>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary"
+                fxFlex="1 1 auto" [disabled]="!myForm.form.valid">추가</button>
+      </div>
+    </form>
     <hr>
 
     <table class="table">
@@ -21,15 +28,32 @@
       </tr>
       </thead>
       <tbody id="todo_list">
-      <tr *ngFor="let item of todoList">
-        <td>{{item.isFinished ? '완료' : '비완료'}}</td>
-        <td>{{item.todo}}</td>
-        <td>{{item.created}}</td>
-        <td>{{item.updated}}</td>
-        <td>
-          <button mat-raised-button color="warn">삭제</button>
-        </td>
-      </tr>
+      <ng-template ngFor let-item [ngForOf]="todoList">
+        <tr [@flyInOut]="'in'" *ngIf="!item.isEdited">
+          <td>{{item.isFinished ? '완료' : '미완료'}}</td>
+          <td>{{item.todo}}</td>
+          <td>{{item.created}}</td>
+          <td>{{item.updated}}</td>
+          <td>
+            <button mat-raised-button color="accent" (click)="save(item)">수정</button>
+            <button mat-raised-button color="warn" (click)="remove(item)">삭제</button>
+          </td>
+        </tr>
+        <tr [@flyInOut]="'in'" *ngIf="item.isEdited">
+          <td>
+            <input type="checkbox" [(ngModel)]="item.isFinished">
+          </td>
+          <td>
+            <input [(ngModel)]="item.todo">
+          </td>
+          <td>{{item.created}}</td>
+          <td>{{item.updated}}</td>
+          <td>
+            <button mat-raised-button color="accent" (click)="modify(item)">저장</button>
+            <button mat-raised-button color="warn" (click)="restore(item)">취소</button>
+          </td>
+        </tr>
+      </ng-template>
       </tbody>
     </table>
 

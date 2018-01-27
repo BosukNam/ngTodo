@@ -14,6 +14,7 @@ import { AngularComponent } from './angular/angular.component';
 import {UserService} from './user.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { HighlightDirective } from './highlight.directive';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {FormsModule} from '@angular/forms';
     IndexComponent,
     HomeComponent,
     JqueryComponent,
-    AngularComponent
+    AngularComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

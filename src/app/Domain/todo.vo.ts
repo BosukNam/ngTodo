@@ -4,4 +4,7 @@ export class TodoVO {
   todo: string;
   created: string;
   updated: string;
+
+  // 에디터
+  isEdited: boolean;
 }
